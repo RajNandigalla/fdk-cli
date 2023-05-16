@@ -139,19 +139,17 @@ export default class Extension {
         spinner = new Spinner('Registering Extension');
         try {
           spinner.start();
-          let extension_data: Object = await ExtensionService.registerExtension(
-            answers.partner_access_token,
-            {
-              name: answers.name,
-              base_url: 'http://localdev.fynd.com',
-              extention_type: answers.type.toLowerCase()
-            }
-          )
+          let extension_data: Object = {
+            client_id:'637b1fe3e82cabfe7a7dea71',
+            secret:'8I76wbLsIxLawmf',
+            launch_url:'http://o.localhost'
+          };
           answers.extension_api_key = extension_data.client_id;
           answers.extension_api_secret = extension_data.secret;
           answers.base_url = extension_data.launch_url;
           spinner.succeed();
         } catch(error) {
+          console.log(error);
           spinner.fail();
           throw new CommandError(error.message);
         }
