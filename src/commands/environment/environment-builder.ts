@@ -1,7 +1,7 @@
 import commander from 'commander';
 import Env from '../../lib/Env';
 export default function environmentCommandBuilder() {
-    const env = new commander.Command('env').description('Environment Commands');
+    const env:any = new commander.Command('env').description('Environment Commands');
     env
         .command('get')
         .description('Get current environment')

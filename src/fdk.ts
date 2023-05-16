@@ -88,16 +88,16 @@ Run \`npm install -g ${packageJSON.name}\` to get the latest version.`
             ) {
                 throw new CommandError(COMMON_LOG_MESSAGES.EnvNotSet);
             }
-            if (
-                !(AUTHENTICATION_COMMANDS.findIndex(c => authCommand.includes(c)) !== -1) &&
-                !(ENVIRONMENT_COMMANDS.findIndex(c => envCommand.includes(c)) !== -1) &&
-                !(EXTENSION_COMMANDS.findIndex(c => extensionCommand.includes(c)) !== -1) &&
-                !(PARTNER_COMMANDS.findIndex(c => partnerCommand.includes(c)) !== -1) &&
-                !configStore.get(CONFIG_KEYS.COOKIE)  && !(parent.args.includes('theme') &&
-                parent.args.includes('package'))
-            ) {
-                throw new CommandError(COMMON_LOG_MESSAGES.RequireAuth);
-            }
+            // if (
+            //     !(AUTHENTICATION_COMMANDS.findIndex(c => authCommand.includes(c)) !== -1) &&
+            //     !(ENVIRONMENT_COMMANDS.findIndex(c => envCommand.includes(c)) !== -1) &&
+            //     !(EXTENSION_COMMANDS.findIndex(c => extensionCommand.includes(c)) !== -1) &&
+            //     !(PARTNER_COMMANDS.findIndex(c => partnerCommand.includes(c)) !== -1) &&
+            //     !configStore.get(CONFIG_KEYS.COOKIE)  && !(parent.args.includes('theme') &&
+            //     parent.args.includes('package'))
+            // ) {
+            //     throw new CommandError(COMMON_LOG_MESSAGES.RequireAuth);
+            // }
             if (THEME_COMMANDS.findIndex(c => themeCommand.includes(c)) !== -1) {
                 const activeContextEnv = getActiveContext().env;
                 if (activeContextEnv !== Env.getEnvValue()) {
@@ -201,3 +201,12 @@ async function promptForFDKFolder() {
         return false;
     }
 }
+
+
+const bootstrap = () => {
+  const program = init('fdk');
+  parseCommands();
+  return program;
+}
+
+bootstrap();

@@ -1,8 +1,8 @@
-import { Command } from 'commander';
+// import { Command } from 'commander';
 import inquirer from 'inquirer';
 import Auth from '../lib/Auth';
 import CommandError from '../lib/CommandError';
-import Debug from '../lib/Debug';
+// import Debug from '../lib/Debug';
 import validator from 'validator';
 
 const AuthenticationHandler = async (options, command) => {
@@ -42,7 +42,7 @@ const AuthenticationHandler = async (options, command) => {
   }
 };
 
-export default function context(program: Command) {
+export default function context(program: any) {
   // List available context
   program
     .command('auth')

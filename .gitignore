@@ -139,3 +139,5 @@ csv/
 #python virtual environment
 *env/*
 *venv/*
+
+hello*

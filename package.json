@@ -22,7 +22,8 @@
     "copy-files": "copyfiles -u 1 src/**/*.html dist/",
     "watch": "tsc --watch",
     "prepublishOnly": "npm run build",
-    "test": "jest --runInBand"
+    "test": "jest --runInBand",
+    "dev": "ts-node src/fdk.ts"
   },
   "devDependencies": {
     "@types/async": "^3.2.6",
@@ -50,10 +51,11 @@
     "axios-mock-adapter": "^1.20.0",
     "copyfiles": "^2.4.1",
     "del-cli": "^3.0.1",
+    "fastify-tsconfig": "^1.0.1",
     "jest": "^27.5.1",
+    "nodemon": "^2.0.22",
     "source-map-support": "^0.5.19",
     "ts-jest": "^27.1.4",
-    "ts-node": "^9.1.1",
     "typescript": "^4.6.4"
   },
   "dependencies": {
@@ -103,6 +105,7 @@
     "source-map": "^0.7.3",
     "stacktrace-parser": "^0.1.10",
     "terminal-link": "^1.3.0",
+    "ts-node": "^10.9.1",
     "url-join": "^4.0.1",
     "validator": "^13.6.0",
     "vue-template-compiler": "^2.6.13",

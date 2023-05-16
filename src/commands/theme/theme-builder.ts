@@ -2,12 +2,12 @@ import commander from 'commander';
 import Theme from '../../lib/Theme';
 import ThemeContext from '../../lib/ThemeContext';
 export default function themeCommandBuilder() {
-    const theme = new commander.Command('theme').description('Theme Commands');
+    const theme = new commander.Command('theme').description('Theme Commands') as any;
     theme
         .command('new')
         .alias('add')
         .description('Create Theme')
-        .requiredOption('-t, --token [token]', 'Token')
+        // .requiredOption('-t, --token [token]', 'Token')
         .requiredOption('-n, --name [name]', 'Theme name')
         .option('-u, --url [url]', 'repo url')
         .asyncAction(Theme.createTheme);

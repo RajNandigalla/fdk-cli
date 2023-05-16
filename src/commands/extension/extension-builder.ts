@@ -5,7 +5,7 @@ import ExtensionPreviewURL from "../../lib/ExtensionPreviewURL";
 
 
 export default function extensionCommandBuilder() {
-    const extension = new Command('extension').description('Extension Commands');
+    const extension = new Command('extension').description('Extension Commands') as any;
     extension
         .command('init')
         .description('Initialize extension')
@@ -29,7 +29,7 @@ export default function extensionCommandBuilder() {
         .asyncAction(ExtensionPreviewURL.previewUrlExtensionHandler);
 
 
-    const launch_url = new Command('launch-url').description('launch url commands');
+    const launch_url = new Command('launch-url').description('launch url commands') as any;
     launch_url
         .command('get')
         .description('Get current launch url for extension')
